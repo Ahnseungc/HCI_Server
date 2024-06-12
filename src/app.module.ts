@@ -5,12 +5,14 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import mongoose from 'mongoose';
 import { UsersModule } from './users/users.module';
+import { PostsModule } from './posts/post.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRoot(process.env.NEXT_PUBLIC_MONGODB_URL),
     UsersModule,
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

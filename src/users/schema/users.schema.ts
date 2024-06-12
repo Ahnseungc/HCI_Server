@@ -17,11 +17,9 @@ export class User extends Document {
   @Prop()
   SchoolName: string;
   @Prop()
-  SchoolNumber: string;
+  SchoolNumber: number;
   @Prop()
   SchoolMajor: string;
-  @Prop()
-  age: number;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
