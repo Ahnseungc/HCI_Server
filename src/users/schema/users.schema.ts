@@ -13,8 +13,13 @@ export type UserDocument = User & Document;
 @Schema(options)
 export class User extends Document {
   @Prop()
-  name: string;
-
+  NickName: string;
+  @Prop()
+  SchoolName: string;
+  @Prop()
+  SchoolNumber: string;
+  @Prop()
+  SchoolMajor: string;
   @Prop()
   age: number;
 }

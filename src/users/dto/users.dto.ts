@@ -1,11 +1,15 @@
-import { IsString, IsInt, Min, Max } from 'class-validator';
+import { IsString, IsInt } from 'class-validator';
 
 export class CreateUserDto {
   @IsString()
-  readonly name: string;
+  readonly NickName: string;
+
+  @IsString()
+  readonly SchoolName: string;
+
+  @IsString()
+  readonly SchoolMajor: string;
 
   @IsInt()
-  @Min(0)
-  @Max(150)
-  readonly age: number;
+  readonly SchoolNumber: string;
 }
