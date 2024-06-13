@@ -13,6 +13,12 @@ export type UserDocument = User & Document;
 @Schema(options)
 export class User extends Document {
   @Prop()
+  kakaoId: string;
+  @Prop()
+  username: string;
+  @Prop()
+  email: string;
+  @Prop()
   NickName: string;
   @Prop()
   SchoolName: string;
