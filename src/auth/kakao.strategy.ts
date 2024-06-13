@@ -25,7 +25,6 @@ export class KakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
         img: profile._json.properties.profile_image,
         emails: profile._json.kakao_account.email,
       };
-
       done(null, user);
     } catch (err) {
       done(err, false);
