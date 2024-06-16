@@ -13,7 +13,7 @@ export type PostsDocument = Posts & Document;
 @Schema(options)
 export class Posts extends Document {
   @Prop()
-  Id: string;
+  id: string;
   @Prop()
   Title: string;
   @Prop()
@@ -25,9 +25,15 @@ export class Posts extends Document {
   @Prop()
   IsRecruiting: boolean;
   @Prop()
-  UploadTag: Array<string>;
+  UploadTag: string;
   @Prop()
   ExpireDate: string;
+  @Prop()
+  Writer: string;
+  @Prop()
+  UserList: Array<string>;
+  @Prop()
+  writeid: string;
 }
 
 export const PostsSchema = SchemaFactory.createForClass(Posts);

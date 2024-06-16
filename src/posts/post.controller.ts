@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { CreatePostsDto } from './dto/posts.dto';
 import { Posts } from './schema/posts.schema';
@@ -12,8 +12,19 @@ export class PostsController {
     return this.postsService.create(createPostsDto);
   }
 
-  @Get('posts/:id')
-  async findPosts(@Param('id') id: string): Promise<Posts[]> {
-    return this.postsService.findPosts(id);
+  @Get('posts')
+  async getPosts(@Query('id') id: string): Promise<Posts[]> {
+    return this.postsService.getPosts(id);
+  }
+
+  @Get('postsAll')
+  async getAllPosts(): Promise<Posts[]> {
+    return this.postsService.getAllPosts();
+  }
+
+  @Get('postsDetail')
+  async findPosts(@Query('writeid') writeid: string): Promise<Posts[]> {
+    console.log(writeid);
+    return this.postsService.findPosts(writeid);
   }
 }

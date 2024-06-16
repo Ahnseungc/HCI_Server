@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Query, Put } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './schema/users.schema';
-import { CreateUserDto } from './dto/users.dto';
+import { CreateUserDto, UpdateUserDto } from './dto/users.dto';
 
 @Controller('api')
 export class UsersController {
@@ -13,7 +13,15 @@ export class UsersController {
   }
 
   @Get('user')
-  async findAll(): Promise<User[]> {
-    return this.usersService.findAll();
+  async find(@Query('kakaoId') kakaoId: string): Promise<User[]> {
+    return this.usersService.findUser(kakaoId);
+  }
+
+  @Put('updateuser')
+  async updateUser(
+    @Query('kakaoId') kakaoId: string,
+    @Body() updateUserDto: UpdateUserDto,
+  ): Promise<User> {
+    return this.usersService.updateUser(kakaoId, updateUserDto);
   }
 }

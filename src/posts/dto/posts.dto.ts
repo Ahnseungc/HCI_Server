@@ -20,12 +20,21 @@ export class CreatePostsDto {
   @IsBoolean()
   readonly IsRecruiting: boolean;
 
-  @IsArray()
-  readonly UploadTag: Array<string>;
+  @IsString()
+  readonly UploadTag: string;
 
   @IsString()
   readonly ExpireDate: string;
 
   @IsString()
-  readonly Id: string;
+  readonly id: string;
+
+  @IsString()
+  readonly Writer: string;
+
+  @IsString()
+  readonly writeid: string;
+
+  @IsArray()
+  readonly UserList: Array<string>;
 }

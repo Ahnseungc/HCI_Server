@@ -15,7 +15,14 @@ export class PostsService {
     return createPost.save();
   }
 
-  async findPosts(Id: string): Promise<Posts[]> {
-    return this.postsModel.find({ Id }).exec();
+  async getPosts(id: string): Promise<Posts[]> {
+    return this.postsModel.find({ id }).exec();
+  }
+  async getAllPosts(): Promise<Posts[]> {
+    return this.postsModel.find().exec();
+  }
+
+  async findPosts(writeid: string): Promise<Posts[]> {
+    return this.postsModel.find({ writeid }).exec();
   }
 }

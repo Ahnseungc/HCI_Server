@@ -1,4 +1,4 @@
-import { IsString, IsInt } from 'class-validator';
+import { IsString, IsInt, IsArray, IsOptional } from 'class-validator';
 
 export class CreateUserDto {
   @IsString()
@@ -21,4 +21,16 @@ export class CreateUserDto {
 
   @IsInt()
   readonly SchoolNumber: string;
+
+  @IsString()
+  readonly Posistion: string;
+
+  @IsArray()
+  readonly Skill: Array<string>;
+}
+
+export class UpdateUserDto {
+  @IsOptional()
+  @IsString()
+  readonly Skill?: string;
 }

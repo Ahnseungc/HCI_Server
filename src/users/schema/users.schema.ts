@@ -28,6 +28,10 @@ export class User extends Document {
   SchoolNumber: number;
   @Prop()
   SchoolMajor: string;
+  @Prop()
+  Posistion: string;
+  @Prop()
+  Skill: [];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
